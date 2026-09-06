@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="div-titulo">
+            <h1>ROMMEL STORE</h1>
+        </div>
+    </header>
+
+    <main>
+        <div id="form-cadastro-produto">
+
+            <h2>CADASTRAR NOVO PRODUTO</h2>
+            <form id="form-produto">
+                <input type="text" id="descricao" placeholder="Descrição" required>
+                <input type="text" id="categoria" placeholder="Categoria" required>
+                <input type="number" id="preco" placeholder="Preço" step="0.01" required>
+                <input type="number" id="estoque" placeholder="Estoque" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+        <div id="lista-produtos" class="row"></div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>

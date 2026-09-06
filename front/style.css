@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+}
+
+body{
+    background-color: rgb(37, 37, 37);
+    color: white;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-titulo{
+    background-color: #fc3a51;
+    padding: 20px;
+    text-align: center;
+}
+
+/* PRODUTOS */
+#lista-produtos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.id-produto{
+    background-color: #ffc800;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    color: black;
+}
+
+.card-produto{
+    background-color: white;
+    color: black;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 330px;
+}
+
+.card-produto h3{
+    background-color: #fc3a51;
+    padding: 10px;
+    border-top-right-radius: 30px;
+}
+
+.div-botoes{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn-editar{
+    border: none;
+    background-color: #ffc800;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.btn-excluir{
+    border: none;
+    background-color: rgb(193, 9, 9);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/* FORM CADASTRO */
+#form-cadastro-produto{
+    background-color: white;
+    color: black;
+    text-align: center;
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+}
+
+#form-cadastro-produto input{
+    border: 5px solid #fc3a51;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#form-cadastro-produto button{
+    background-color: #fc3a51;
+    border: 5px solid #fc3a51;
+    padding: 10px;
+    border-radius: 5px;
+}

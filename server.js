@@ -1,6 +1,5 @@
-const express = require ('express')
-const app = express ()
-
+const express = require ('express');
+const app = express ();
 const produtos = [
   {
     "id": 1,
@@ -86,9 +85,9 @@ const produtos = [
     "preco": 529.90,
     "estoque": 17
   }
-]
+];
 
-app.use(express.json());
+app.use(express.static('front'));
 
 app.get('/', (req, res) => {
     res.send (`Olá estranho.`)
@@ -108,6 +107,8 @@ app.get('/produtos/:id', (req, res) => {
         res.status(404).send ('Produto não existe')
     }
 })
+
+app.use(express.json());
 
 app.post('/produtos', (req, res) => {
     const novoProduto = {
@@ -139,12 +140,12 @@ app.put('/produtos/:id', (req, res) => {
     produto.estoque = req.body.estoque
 
     res.json(produto);
-})
+});
 
 app.delete('/produtos/:id', (req, res) => {
     const id = parseInt (req.params.id)
 
-    const index = produtos.findIndex (prod => prod.id === id)
+    const index = produtos.findIndex(prod => prod.id === id)
     if (index === -1) {
         return res.status(404).json({
             mensagem: "Produto não encontrado"
@@ -156,9 +157,9 @@ app.delete('/produtos/:id', (req, res) => {
     res.json({
         mensagem: "Produto excluído com sucesso"
     });
-})
+});
 
-const port = 3000
+const port = 3000;
 app.listen (port, ()=>{
-    console.log (`Server rodando no http://localhost:${port}`)
-})
+    console.log (`Server rodando no http://localhost:${port}`);
+});
