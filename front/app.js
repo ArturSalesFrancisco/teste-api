@@ -1,5 +1,8 @@
 const listaProdutos = document.getElementById("lista-produtos");
 const formProduto = document.getElementById("form-produto");
+let produtoEd = null;
+const btnForm = document.getElementById("btn-form");
+const tituloForm = document.getElementById("titulo-form");
 
 function carregarProdutos(){
     fetch('/produtos')
@@ -37,7 +40,9 @@ function carregarProdutos(){
             btnEditar.classList.add("btn-editar");
 
             btnEditar.addEventListener("click", () => {
-                editarProduto(produto.id);
+                btnForm.textContent = "Salvar";
+                tituloForm.textContent = "EDITAR PRODUTO";
+                editarProduto(produto);
             });
 
             const btnExcluir = document.createElement("button");
@@ -80,23 +85,55 @@ formProduto.addEventListener("submit", (evento) => {
     const preco = document.getElementById("preco").value;
     const estoque = document.getElementById("estoque").value;
 
-    fetch("/produtos", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            descricao: descricao,
-            categoria: categoria,
-            preco: Number(preco),
-            estoque: Number(estoque)
+    if (produtoEd !== null){
+        fetch(`/produtos/${produtoEd}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                descricao: descricao,
+                categoria: categoria,
+                preco: Number(preco),
+                estoque: Number(estoque)
+            })
         })
-    })
-    .then(res => res.json())
-    .then(produto => {
-        formProduto.reset();
-        carregarProdutos();
-    })
+        .then(res => res.json())
+        .then(produto => {
+            formProduto.reset();
+            produtoEditando = null;
+            btnForm.textContent = "Cadastrar";
+            tituloForm.textContent = "CADASTRAR NOVO PRODUTO";
+            carregarProdutos();
+        })
+    } else {
+        fetch("/produtos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                descricao: descricao,
+                categoria: categoria,
+                preco: Number(preco),
+                estoque: Number(estoque)
+            })
+        })
+        .then(res => res.json())
+        .then(produto => {
+            formProduto.reset();
+            carregarProdutos();
+        })
+    }
 })
+
+function editarProduto(produto){
+    produtoEd = produto.id;
+
+    document.getElementById("descricao").value = produto.descricao;
+    document.getElementById("categoria").value = produto.categoria;
+    document.getElementById("preco").value = produto.preco;
+    document.getElementById("estoque").value = produto.estoque;
+}
 
 carregarProdutos();

@@ -15,7 +15,7 @@ main{
 }
 
 .div-titulo{
-    background-color: #fc3a51;
+    background-color: crimson;
     padding: 20px;
     text-align: center;
 }
@@ -49,10 +49,12 @@ main{
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     height: 330px;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-produto h3{
-    background-color: #fc3a51;
+    background-color: crimson;
     padding: 10px;
     border-top-right-radius: 30px;
 }
@@ -61,20 +63,24 @@ main{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: auto;
+    margin-bottom: 10px;
 }
 
 .btn-editar{
     border: none;
     background-color: #ffc800;
-    border-radius: 15px;
-    padding: 10px;
+    border-radius: 3px;
+    padding: 5px;
+    width: 40%;
 }
 
 .btn-excluir{
     border: none;
     background-color: rgb(193, 9, 9);
-    border-radius: 15px;
-    padding: 10px;
+    border-radius: 3px;
+    padding: 5px;
+    width: 40%;
 }
 
 /* FORM CADASTRO */
@@ -89,14 +95,15 @@ main{
 }
 
 #form-cadastro-produto input{
-    border: 5px solid #fc3a51;
+    border: 5px solid crimson;
+    background-color: white;
     padding: 10px;
     border-radius: 5px;
 }
 
 #form-cadastro-produto button{
-    background-color: #fc3a51;
-    border: 5px solid #fc3a51;
+    background-color: crimson;
+    border: 5px solid crimson;
     padding: 10px;
     border-radius: 5px;
 }
